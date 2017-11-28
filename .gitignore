@@ -79,3 +79,7 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+TempBuild_Data
+TempBuild.exe
+UnityPlayer.dll
