@@ -5,10 +5,12 @@ using UnityEngine;
 public class PickupObject : MonoBehaviour {
 
 	public Transform guide;
+
 	// Update is called once per frame
 	void Update () {
 
 	}
+
 	void OnTriggerStay(Collider pick){
 		Liftable liftable = pick.GetComponent<Liftable> ();
 		if (liftable != null) {

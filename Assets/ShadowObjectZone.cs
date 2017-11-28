@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ShadowObjectZone : MonoBehaviour {
 
-	// Test change
+	public Transform shadowPosition;
 
 	// Use this for initialization
 	void Start () {
@@ -14,5 +14,12 @@ public class ShadowObjectZone : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		
+	}
+
+	void OnTriggerEnter(Collider pick){
+		Liftable liftable = pick.GetComponent<Liftable> ();
+		if (liftable != null) {
+			liftable.shadowZone (shadowPosition);
+		}
 	}
 }

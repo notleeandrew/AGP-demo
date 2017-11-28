@@ -40,4 +40,12 @@ public class Liftable : MonoBehaviour {
 			print ("throw");
 		}
 	}
+
+	public void shadowZone(Transform shadowPosition){
+		transform.parent = null;
+		GetComponent<Rigidbody> ().useGravity = false;
+		//GetComponent<Rigidbody> ().isKinematic = true;
+		transform.position = shadowPosition.position;
+		transform.parent = shadowPosition;
+	}
 }

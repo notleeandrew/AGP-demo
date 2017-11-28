@@ -15,6 +15,10 @@ public class RotatePlate : MonoBehaviour {
 				var playerMovement = other.GetComponent<PlayerMovement> ();
 				playerMovement.enabled = !Shadow.enabled;
 				Cursor.lockState = Shadow.enabled? CursorLockMode.None : CursorLockMode.Locked;
+				var throwing = other.GetComponent<ThrowObject> ();
+				throwing.enabled = !Shadow.enabled;
+				var picking = other.GetComponent<PickupObject> ();
+				picking.enabled = !Shadow.enabled;
 				var RigidBody = other.GetComponent<Rigidbody> ();
 				RigidBody.constraints = Shadow.enabled? (RigidBody.constraints | RigidbodyConstraints.FreezeRotationY) : (RigidBody.constraints & ~RigidbodyConstraints.FreezeRotationY);
 			}
