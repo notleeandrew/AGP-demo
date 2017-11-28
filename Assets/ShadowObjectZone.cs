@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ShadowObjectZone : MonoBehaviour {
 
+	// Test change
+
 	// Use this for initialization
 	void Start () {
 		
