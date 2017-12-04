@@ -13,6 +13,8 @@ public class Projection : MonoBehaviour {
 
 	public Type type = Type.Light;
 
+	public float raycastlength = 20f;
+
 	// Use this for initialization
 	void Start () {
 		SpotLight = gameObject.GetComponent<Light> ();
@@ -22,7 +24,7 @@ public class Projection : MonoBehaviour {
 	void Update () {
 		RaycastHit hit;
 
-		Debug.DrawRay (transform.position, transform.forward * 20, Color.green);
+		Debug.DrawRay (transform.position, transform.forward * raycastlength, Color.green);
 
 		if (Physics.Raycast(transform.position, transform.forward, out hit)) {
 			hit.collider.SendMessageUpwards ("Receive", type, SendMessageOptions.DontRequireReceiver);
