@@ -7,7 +7,7 @@ public class RotatePlate : MonoBehaviour {
 	public Behaviour Shadow;
 
 	void OnTriggerStay (Collider other){
-		if (other.gameObject.tag == "Player") {
+		if (other.gameObject.tag == "Player" && !other.isTrigger) {
 			if (Input.GetKeyDown(KeyCode.E)) {
 				Shadow.enabled = !Shadow.enabled;
 				var cameraLook = other.GetComponentInChildren<CameraLook> ();
