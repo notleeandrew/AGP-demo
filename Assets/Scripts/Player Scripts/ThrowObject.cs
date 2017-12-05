@@ -4,31 +4,22 @@ using UnityEngine;
 
 public class ThrowObject : MonoBehaviour {
 
-	public Transform guide;
+    PickupObject pickup;
+    public float thrust = 100.0f;
 
-	// Use this for initialization
-	void Start () {
-
-	}
+    void Start()
+    {
+        pickup = GetComponent<PickupObject>();
+    }
 
 	// Update is called once per frame
 	void Update () {
-
-	}
-
-	void OnTriggerStay(Collider pick){
-		Liftable liftable = pick.GetComponent<Liftable> ();
-		if (liftable != null) {
-			liftable.enabled = true;
-			if (Input.GetMouseButtonDown(0)) {
-				liftable.PickingUp (guide);
-			}
-			if (Input.GetKeyDown(KeyCode.E)) {
-				liftable.throwing ();
-			}
-			if (Input.GetMouseButtonUp(0)) {
-				liftable.PutDown ();
-			}
-		}
+        if (Input.GetKeyDown(KeyCode.E) && pickup.carrying != null) {
+            Liftable liftable = pickup.carrying;
+            pickup.PutDown ();
+            Rigidbody rb = liftable.GetComponent<Rigidbody>();
+            rb.AddForce (transform.forward * thrust, ForceMode.Impulse);
+            Debug.Log ("throw");
+        }
 	}
 }
