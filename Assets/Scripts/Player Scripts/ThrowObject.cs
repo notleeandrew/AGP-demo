@@ -5,7 +5,7 @@ using UnityEngine;
 public class ThrowObject : MonoBehaviour {
 
     PickupObject pickup;
-    public float thrust = 100.0f;
+    public float thrust = 10f;
 
     void Start()
     {
