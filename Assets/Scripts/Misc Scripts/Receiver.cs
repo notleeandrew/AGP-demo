@@ -17,7 +17,14 @@ public class Receiver : MonoBehaviour {
 			behaviour.enabled = activate;
 		}
 	}
-	
+
+	void Receive(Projection.Type receiveType){
+		if (receiveType == type) {
+			timeSinceHit = 0.0f;
+			Activate (true);
+		}
+	}
+
 	// Update is called once per frame
 	void Update () {
 		timeSinceHit += Time.deltaTime;
@@ -26,10 +33,5 @@ public class Receiver : MonoBehaviour {
 		}
 	}
 
-	void Receive(Projection.Type receiveType){
-		if (receiveType == type) {
-			timeSinceHit = 0.0f;
-			Activate (true);
-		}
-	}
+
 }

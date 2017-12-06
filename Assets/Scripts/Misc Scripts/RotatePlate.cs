@@ -6,6 +6,9 @@ public class RotatePlate : MonoBehaviour {
 
 	public Behaviour Shadow;
 
+	void Start (){
+
+	}
 	void OnTriggerStay (Collider other){
 		if (other.gameObject.tag == "Player" && !other.isTrigger) {
 			if (Input.GetKeyDown(KeyCode.E)) {
