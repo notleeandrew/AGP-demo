@@ -11,24 +11,26 @@ public class PauseGame : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyDown(KeyCode.Escape)) {
-			Pause ();
-		}
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Pause();
+        }
 	}
 	public void Pause(){
 		if (canvas.gameObject.activeInHierarchy == false) {
 			canvas.gameObject.SetActive (true);
-			Time.timeScale = 0;
+            Time.timeScale = 0;
 			Player.GetComponent<PlayerMovement> ().enabled = false;
 			Player.GetComponentInChildren<CameraLook> ().enabled = false;
 		} else {
 			canvas.gameObject.SetActive (false);
 			Time.timeScale = 1;
-			Player.GetComponent<PlayerMovement> ().enabled = true;
+            Player.GetComponent<PlayerMovement> ().enabled = true;
 			Player.GetComponentInChildren<CameraLook> ().enabled = true;
-
-		}
-	}
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+    }
 
 	public void RestartLevel(){
 		Time.timeScale = 1;

@@ -13,6 +13,7 @@ public class Liftable : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
 	}
 
 	public void Attach(Transform guide){
